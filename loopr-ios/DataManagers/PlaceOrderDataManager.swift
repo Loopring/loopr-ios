@@ -238,7 +238,7 @@ class PlaceOrderDataManager {
         let lrcFee = _encodeString(order.lrcFee, "LRC")
         let validSince = order.validSince.hex
         let validUntil = order.validUntil.hex
-        let authPrivateKey = order.orderType == .marketOrder ? order.authPrivateKey : nil
+        let authPrivateKey = order.authPrivateKey
         let powNonce = 1
   
         LoopringAPIRequest.submitOrder(owner: order.address, walletAddress: order.walletAddress, tokenS: tokens, tokenB: tokenb, amountS: amountS, amountB: amountB, lrcFee: lrcFee, validSince: validSince, validUntil: validUntil, marginSplitPercentage: order.marginSplitPercentage, buyNoMoreThanAmountB: order.buyNoMoreThanAmountB, authAddr: order.authAddr, authPrivateKey: authPrivateKey, powNonce: powNonce, orderType: order.orderType.rawValue, v: order.v, r: order.r, s: order.s, completionHandler: completion)
